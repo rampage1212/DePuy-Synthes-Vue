@@ -1,0 +1,82 @@
+{
+  "name": "gladiator-frontend",
+  "version": "0.0.3",
+  "private": "true",
+  "scripts": {
+    "dev": "vite",
+    "dev:beta": "VITE_STAGE=dev vite",
+    "lint": "eslint \"./**/*.?(js|vue)\"",
+    "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
+    "lint:fix": "eslint --fix \"./src/**/*.?(js|vue)\" && npm run lint:style --fix && npm run prettier",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write \"./src/**/*.?(js|vue|css|json)\"",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test:coverage": "jest tests --verbose --coverage --coverageReporters=\"json-summary\"",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:integration:leak": "jest tests/integration --runInBand --detectOpenHandles",
+    "test:unit:watch": "jest tests/unit --watch",
+    "test:integration:watch": "jest tests/integration --watch",
+    "test": "jest tests --verbose",
+    "test:watch": "jest tests --watch",
+    "jest:clearCache": "jest --clearCache"
+  },
+  "dependencies": {
+    "@tinymce/tinymce-vue": "^4.0.3",
+    "aws-amplify": "^4.0.3",
+    "file-saver": "^2.0.5",
+    "lodash": "^4.17.21",
+    "papaparse": "^5.3.1",
+    "reveal.js": "^4.2.0",
+    "reveal.js-plugins": "^4.1.5",
+    "tinymce": "^5.10.2",
+    "vue": "^3.0.5",
+    "vue-draggable-next": "^2.1.1",
+    "vue-gtag-next": "^1.14.0",
+    "vue-router": "^4.0.6",
+    "vue-router-mock": "^0.1.2",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@types/jest": "^26",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "^3.2.22",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "autoprefixer": "^10.2.5",
+    "babel-jest": "^26",
+    "babel-plugin-transform-import-meta": "^2.1.0",
+    "babel-preset-vite": "^1.0.4",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^8.1.1",
+    "jest": "^26",
+    "lint-staged": "^12.0.3",
+    "postcss": "^8.2.9",
+    "postcss-html": "^1.2.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.3.2",
+    "stylelint": "^14.1.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.0.0",
+    "tailwindcss": "^3.0.7",
+    "ts-jest": "^26",
+    "vite": "^2.6.14",
+    "vite-plugin-svg-icons": "^1.0.5",
+    "vue-jest": "^5.0.0-alpha.1"
+  },
+  "precommit": "lint-staged",
+  "lint-staged": {
+    "*.{css,vue}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": "prettier --write"
+  }
+}

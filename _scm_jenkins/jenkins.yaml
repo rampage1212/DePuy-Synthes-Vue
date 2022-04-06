@@ -1,0 +1,13 @@
+- url: https://jenkins.eat.jnj.com/jadi-dev
+  buildFrom:
+    - develop
+    - main
+  jobs:
+    - jobStyle: multi-branch-pipeline # Jenkins Job Style. Supported values: dsl, multi-branch-pipeline
+      jobName: 'frontend-build' # Fully qualified location to create jobJenkins Job Name. Supported values: alphanumeric string with no spaces or special characters (ie. pipeline-job-name or folder/pipeline-job-name )
+      jobCredentials: sourcecode-bitbucket # Credentials Jenkins will use to pull the configuration of JPM pipeline. Default: sourcecode-bitbucket
+      includeBranches: # List of branches for which the Jenkins will trigger jobs
+        - develop
+        - main
+      # excludeBranches: # List of branches for which the Jenkins will skip job trigger
+      #   - feature/neverBuild

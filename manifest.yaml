@@ -1,0 +1,35 @@
+# Pipeline details across environments (default)
+common:
+  pipelineType: react.web
+  artifactory:
+    target: jadi-npm/gladiator-frontend
+  package:
+    type: react.web
+    name: dist/gladiator-frontend
+  unitTest:
+    enabled: false
+  # versionCalculation:
+  #   artifactPath: jadi-npm/gladiator-frontend
+  #   artifactPattern: gladiator-frontend-(.*).tar.gz
+  #   includePrereleases: true
+  #   version: '>=0'
+  versionCalculation:
+    enabled: true
+    type: gitversion
+    patternType: jnj-developer-branch
+    confirmVersion: false
+  resolveArtifacts:
+    enabled: false
+    type: artifactory
+    credentialsId: 'jnj-eat-artifactory-build'
+    destination: 'dist'
+    binary: true
+  # resolveArtifacts:
+  #   artifactPath: jadi-npm/gladiator-frontend
+  #   artifactPattern: gladiator-frontend-${version}.tar.gz
+
+# Pipeline details per environment
+environments:
+  DEV:
+    publish:
+      filePattern: dist/gladiator-frontend-*.tar.gz

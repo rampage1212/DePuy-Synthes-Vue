@@ -1,0 +1,10 @@
+version: "1.0"
+sources:
+  - name: common-manifest
+    location:
+      locationType: project
+      file: manifest.yaml
+    manifest:
+      type: simple
+      path: common
+      required: true
