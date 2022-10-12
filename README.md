@@ -39,8 +39,3 @@ Or
 ```bash
 npm run lint:fix
 ```
-
-## Login to sample dev RM user
-
-email: melaku44@gmail.com
-password: Depu#2021
